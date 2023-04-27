@@ -1,0 +1,16 @@
+.header {
+    margin: 0 auto 40px auto;
+    padding: 45px 0 40px 0;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    width: calc(100% - 2 * 200px);
+}
+
+
+@media screen and (max-width: 879px) {
+    .header {
+        width: 100%;
+        padding: 28px 0 31px 27px;
+    }
+}
