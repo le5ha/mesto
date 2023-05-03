@@ -1,0 +1,11 @@
+.popup__block {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: calc(100% - 38px);
+  max-width: 430px;
+  background-color: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-sizing: border-box;
+}

@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mesto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+  <meta charset="UTF-8">
+  <title>Mesto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
 <header class="header">
-    <img src='./images/logo.svg'
-         alt="Лого Место"
-         class="header__logo">
+  <img src='images/logo/logo.svg'
+       alt="Лого Место"
+       class="header__logo">
 </header>
 
 <main class="content">
-    <section class="profile">
-        <img src="/images/avatar.jpg"
-             alt="Аватар"
-             class="profile__avatar">
-        <div class="profile__info">
-            <div class="profile__name-block">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button type="button"
-                        class="profile__button profile__button_type_edit"
-                        aria-label="Редактировать профиль">
-                </button>
-            </div>
-            <p class="profile__description">Исследователь океана</p>
-        </div>
+  <section class="profile">
+    <img src="/images/photos/photo__avatar.jpg"
+         alt="Аватар"
+         class="profile__avatar">
+    <div class="profile__info">
+      <div class="profile__name-block">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button type="button"
-                class="profile__button profile__button_type_add"
-                aria-label="Добавить фотографию"></button>
-    </section>
+                class="profile__button profile__button_type_edit"
+                aria-label="Редактировать профиль">
+        </button>
+      </div>
+      <p class="profile__description">Исследователь океана</p>
+    </div>
+    <button type="button"
+            class="profile__button profile__button_type_add"
+            aria-label="Добавить фотографию">
+    </button>
+  </section>
 
-    <section class="elements">
+  <section class="elements">
+    <ul class="elements__list">
+      <li class="card">
+        <img src="/images/photos/photo__aveiro.jpg"
+             alt="Фотография Авейро"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Авейро</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
 
-    </section>
+      <li class="card">
+        <img src="/images/photos/photo__braga.jpg"
+             alt="Фотография Браги"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Брага</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
+
+      <li class="card">
+        <img src="/images/photos/photo__lisbon.jpg"
+             alt="Фотография Лиссабона"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Лиссабон</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
+
+      <li class="card">
+        <img src="/images/photos/photo__madeira.jpg"
+             alt="Фотография Мадейры"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Мадейра</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
+
+      <li class="card">
+        <img src="/images/photos/photo__porto.jpg"
+             alt="Фотография Порту"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Порту</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
+
+      <li class="card">
+        <img src="/images/photos/photo__setubal.jpg"
+             alt="Фотография Сетубала"
+             class="card__photo">
+        <div class="card__sign">
+          <p class="card__title">Сетубал</p>
+          <button class="card__button"></button>
+        </div>
+      </li>
+    </ul>
+
+  </section>
+
+  <section class="popup">
+    <div class="popup__block">
+      <button class="popup__button popup__button_type_close"
+              type="button"
+              aria-label="Закрыть">
+      </button>
+      <form class="popup__form"
+            action="#"
+            method="post">
+        <p class="popup__title">Редактировать профиль</p>
+        <input class="popup__input"
+               type="text"
+               name="name"
+               id="name"
+               placeholder="Введите имя">
+        <input class="popup__input"
+               type="text"
+               name="description"
+               id="description"
+               placeholder="Укажите профессию">
+        <button class="popup__button popup__button_type_save"
+                type="submit">Сохранить
+        </button>
+      </form>
+    </div>
+  </section>
+
 </main>
 <footer class="footer">
-
+  <p class="footer__text">© 2020 Mesto Russia</p>
 </footer>
-
+<script src="scripts/scripts.js"></script>
 </body>
 </html>

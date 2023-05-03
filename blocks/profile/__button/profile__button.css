@@ -1,14 +1,16 @@
 .profile__button {
-    flex-shrink: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    border: 1px solid #fff;
-    background-color: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: opacity .2s;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #fff;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity .4s;
 }
 
 .profile__button:hover {
-    opacity: .6;
+  opacity: .6;
 }

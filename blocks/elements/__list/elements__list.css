@@ -1,0 +1,31 @@
+.elements__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  row-gap: 20px;
+  column-gap: 18px;
+  justify-items: center;
+}
+
+/* 290px = 282px ширины карточки + небольшая охранная зона */
+@media (min-width: 290px) {
+  .elements__list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ширина = (282px ширины карточки + gap) * 2 карточки в ряд + (небольшая охранная зона с двух сторон) */
+@media (min-width: calc((282px + 17px) * 2 + (5px * 2))) {
+  .elements__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ширина = (282px ширины карточки + gap) * 3 карточки в ряд + (небольшая охранная зона с двух сторон) */
+@media (min-width: calc((282px + 17px) * 3 + (5px * 2))) {
+  .elements__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

@@ -1,20 +1,22 @@
 .profile {
-    margin: 0;
-    gap: 26px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0 0 52px 0;
+  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 767px) {
-    .profile {
-        flex-direction: column;
-    }
+  .profile {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 425px) {
-    .profile {
-        padding-bottom: 36px;
-    }
+  .profile {
+    gap: 24px;
+    padding: 0 0 36px 0;
+  }
 }
