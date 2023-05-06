@@ -7,6 +7,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 550px;
+}
+/* чтобы не ломался аватар от длинного текста */
+@media screen and (max-width: 1023px) {
+  .profile__description {
+    max-width: 400px;
+  }
 }
 
 @media screen and (max-width: 768px) {
