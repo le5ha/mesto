@@ -1,11 +1,12 @@
 .popup__button_type_close {
   width: 32px;
   height: 32px;
-  background-image: url(../../../../images/icons/icon__close.svg);
   border: none;
   position: absolute;
   top: -40px;
   right: -40px;
+  background: transparent;
+  background-image: url(../../../../images/icons/icon__close.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -21,6 +22,6 @@
     width: 20px;
     height: 20px;
     right: -5px;
-    top: -42px;
+    top: -40px;
   }
 

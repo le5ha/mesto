@@ -7,7 +7,7 @@
 
 @media screen  and (max-width: 768px) {
   .profile__info {
-    max-width: 100%; /* На неболших экранах ширина полностью */
+    max-width: 100%;
   }
 }
 

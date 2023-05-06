@@ -1,5 +1,4 @@
 .popup__button {
-  cursor: pointer;
-  background: transparent;
   position: relative;
+  cursor: pointer;
 }

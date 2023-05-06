@@ -1,8 +1,10 @@
 .popup__button_type_save {
+  margin-top: auto;
   display: block;
   width: 100%;
   padding: 14px;
-  margin-top: auto;
+  border: none;
+  border-radius: 2px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -10,8 +12,6 @@
   text-align: center;
   color: white;
   background-color: black;
-  border: none;
-  border-radius: 2px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
