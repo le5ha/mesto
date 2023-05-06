@@ -1,5 +1,5 @@
 // данные со странички
-const profile = document.querySelector('.profile');
+// пока не используем const profile = document.querySelector('.profile');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 // кнопка на страничке

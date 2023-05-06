@@ -5,10 +5,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
-  background: transparent;
-  background-image: url(../../../../images/icons/icon__close.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent url(../../../../images/icons/icon__close.svg) no-repeat center;
   background-size: contain;
   transition: opacity .4s;
 }
@@ -24,4 +21,5 @@
     right: -5px;
     top: -40px;
   }
+}
 
