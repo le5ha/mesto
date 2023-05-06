@@ -6,3 +6,9 @@
   border: none;
   gap: 26px;
 }
+
+@media screen and (max-width: 767px) {
+  .popup__form {
+    padding: 25px 22px;
+  }
+}
