@@ -41,8 +41,8 @@
              alt="Фотография Авейро"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Авейро</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Авейро</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
 
@@ -51,8 +51,8 @@
              alt="Фотография Браги"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Брага</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Брага</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
 
@@ -61,8 +61,8 @@
              alt="Фотография Лиссабона"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Лиссабон</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Лиссабон</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
 
@@ -71,8 +71,8 @@
              alt="Фотография Мадейры"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Мадейра</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Мадейра</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
 
@@ -81,8 +81,8 @@
              alt="Фотография Порту"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Порту</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Порту</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
 
@@ -91,47 +91,47 @@
              alt="Фотография Сетубала"
              class="card__photo">
         <div class="card__sign">
-          <p class="card__title">Сетубал</p>
-          <button class="card__button"></button>
+          <h2 class="card__title">Сетубал</h2>
+          <button type="button" class="card__button"></button>
         </div>
       </li>
     </ul>
-
-  </section>
-
-  <section class="popup">
-    <div class="popup__block">
-      <button class="popup__button popup__button_type_close"
-              type="button"
-              aria-label="Закрыть">
-      </button>
-      <form class="popup__form"
-            action="#"
-            method="post">
-        <p class="popup__title">Редактировать профиль</p>
-        <!-- <label for="name">Укажите имя</label> -->
-        <input class="popup__input"
-               type="text"
-               name="name"
-               id="name"
-               placeholder="Введите имя">
-        <!-- <label for="description">Укажите профессию</label> -->
-        <input class="popup__input"
-               type="text"
-               name="description"
-               id="description"
-               placeholder="Укажите профессию">
-        <button class="popup__button popup__button_type_save"
-                type="submit">Сохранить
-        </button>
-      </form>
-    </div>
   </section>
 
 </main>
 <footer class="footer">
   <p class="footer__text">© 2020 Mesto Russia</p>
 </footer>
+
+<div class="popup">
+  <div class="popup__block">
+    <button class="popup__button popup__button_type_close"
+            type="button"
+            aria-label="Закрыть">
+    </button>
+    <form class="popup__form"
+          action="#"
+          method="post">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <!-- <label for="name">Укажите имя</label> -->
+      <input class="popup__input"
+             type="text"
+             name="name"
+             id="name"
+             placeholder="Введите имя">
+      <!-- <label for="description">Укажите профессию</label> -->
+      <input class="popup__input"
+             type="text"
+             name="description"
+             id="description"
+             placeholder="Укажите профессию">
+      <button class="popup__button popup__button_type_save"
+              type="submit">Сохранить
+      </button>
+    </form>
+  </div>
+</div>
+
 <script src="scripts/scripts.js"></script>
 </body>
 </html>
