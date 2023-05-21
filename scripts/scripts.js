@@ -17,7 +17,7 @@ const placeInput = document.querySelector('.popup__input[name="place"]');
 const photoInput = document.querySelector('.popup__input[name="link"]');
 const formNewCard = document.querySelector('.popup__form_add-photo');
 const buttonCloseAdd = document.querySelector('.popup__button_type_close-add');
-const popupOpenPhoto = document.querySelector('.popup__open');
+const popupOpenPhoto = document.querySelector('.popup_open');
 const imagePhotoOpen = document.querySelector('.popup__photo');
 const titleOpenPhoto = document.querySelector('.popup__caption');
 const buttonClosePhoto = document.querySelector('.popup__button_type_close-image');
