@@ -36,80 +36,33 @@
 
   <section class="elements">
     <ul class="elements__list">
-      <li class="card">
-        <img src="./images/photos/photo__aveiro.jpg"
-             alt="Фотография Авейро"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Авейро</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
-
-      <li class="card">
-        <img src="./images/photos/photo__braga.jpg"
-             alt="Фотография Браги"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Брага</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
-
-      <li class="card">
-        <img src="./images/photos/photo__lisbon.jpg"
-             alt="Фотография Лиссабона"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Лиссабон</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
-
-      <li class="card">
-        <img src="./images/photos/photo__madeira.jpg"
-             alt="Фотография Мадейры"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Мадейра</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
-
-      <li class="card">
-        <img src="./images/photos/photo__porto.jpg"
-             alt="Фотография Порту"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Порту</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
-
-      <li class="card">
-        <img src="./images/photos/photo__setubal.jpg"
-             alt="Фотография Сетубала"
-             class="card__photo">
-        <div class="card__sign">
-          <h2 class="card__title">Сетубал</h2>
-          <button type="button" class="card__button"></button>
-        </div>
-      </li>
     </ul>
   </section>
-
 </main>
+
 <footer class="footer">
   <p class="footer__text">© 2020 Mesto Russia</p>
 </footer>
 
-<div class="popup">
+<template class="element">
+  <li class="card">
+    <img class="card__photo">
+    <div class="card__sign">
+      <h2 class="card__title"></h2>
+      <button type="button" class="card__button-like"></button>
+    </div>
+    <button type="button" class="card__button-delete"></button>
+  </li>
+</template>
+
+<div class="popup" id="popupEditProfile">
   <div class="popup__block">
-    <button class="popup__button popup__button_type_close"
+    <button class="popup__button popup__button_type_close" id="popupEditProfileClose"
             type="button"
             aria-label="Закрыть">
     </button>
     <form class="popup__form"
+          id='formEditProfile'
           action="#"
           method="post">
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -130,6 +83,46 @@
       </button>
     </form>
   </div>
+</div>
+
+<div class="popup" id="popupAddPhoto">
+  <div class="popup__block">
+    <button class="popup__button popup__button_type_close" id="popupAddPhotoClose"
+            type="button"
+            aria-label="Закрыть">
+    </button>
+    <form class="popup__form"
+          action="#"
+          method="post"
+          id="formAddPhoto">
+      <h2 class="popup__title">Новое место</h2>
+      <!-- <label for="name">Новое место</label> -->
+      <input class="popup__input"
+             type="text"
+             name="place"
+             id="place"
+             placeholder="Название">
+      <!-- <label for="description">Название</label> -->
+      <input class="popup__input"
+             type="text"
+             name="link"
+             id="link"
+             placeholder="Ссылка на картинку">
+      <button class="popup__button popup__button_type_save"
+              type="submit">Создать
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="popup" id="popupOpenPhoto">
+  <figure class="popup__image">
+    <img class="popup__photo">
+    <figcaption class="popup__caption"></figcaption>
+    <button class="popup__button popup__button_type_close" id="popupOpenPhotoClose"
+            type="button"
+            aria-label="Закрыть">
+  </figure>
 </div>
 
 <script src="scripts/scripts.js"></script>
