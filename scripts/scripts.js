@@ -114,7 +114,7 @@ function addCard(title, photo) {
     cardTitle.textContent = title;
     cardPhoto.src = photo;
     cardPhoto.alt = title;
-    cardsContainer.appendChild(cardElement);
+    cardsContainer.prepend(cardElement);
     likeCardButton.addEventListener('click', likeCard);
     deleteCardButton.addEventListener('click', deleteCard);
     cardPhoto.addEventListener('click', showImagePopup);
