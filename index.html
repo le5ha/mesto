@@ -55,14 +55,13 @@
   </li>
 </template>
 
-<div class="popup" id="popupEditProfile">
+<div class="popup popup__edit-profile">
   <div class="popup__block">
-    <button class="popup__button popup__button_type_close" id="popupEditProfileClose"
+    <button class="popup__button popup__button_type_close popup__button_type_close-profile"
             type="button"
             aria-label="Закрыть">
     </button>
-    <form class="popup__form"
-          id='formEditProfile'
+    <form class="popup__form popup__form_edit-profile"
           action="#"
           method="post">
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -85,16 +84,15 @@
   </div>
 </div>
 
-<div class="popup" id="popupAddPhoto">
+<div class="popup popup__add-photo">
   <div class="popup__block">
-    <button class="popup__button popup__button_type_close" id="popupAddPhotoClose"
+    <button class="popup__button popup__button_type_close popup__button_type_close-add"
             type="button"
             aria-label="Закрыть">
     </button>
-    <form class="popup__form"
+    <form class="popup__form popup__form_add-photo"
           action="#"
-          method="post"
-          id="formAddPhoto">
+          method="post">
       <h2 class="popup__title">Новое место</h2>
       <!-- <label for="name">Новое место</label> -->
       <input class="popup__input"
@@ -115,17 +113,20 @@
   </div>
 </div>
 
-<div class="popup" id="popupOpenPhoto">
+<div class="popup popup__open-photo">
   <figure class="popup__image">
-    <img class="popup__photo">
-    <figcaption class="popup__caption"></figcaption>
-    <button class="popup__button popup__button_type_close" id="popupOpenPhotoClose"
+    <img class="popup__photo"
+    src="#"
+    alt="#">
+    <button class="popup__button popup__button_type_close popup__button_type_close-image"
             type="button"
             aria-label="Закрыть">
     </button>
+    <figcaption class="popup__caption"></figcaption>
   </figure>
 </div>
 
+<script src="scripts/initial-cards.js"></script>
 <script src="scripts/scripts.js"></script>
 </body>
 </html>
