@@ -109,7 +109,7 @@ buttonEdit.addEventListener('click', function () {
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 buttonCloseProfile.addEventListener('click', function () {
-    openPopup(popupEditProfile);
+    closePopup(popupEditProfile);
 });
 
 // слушатели карточек
