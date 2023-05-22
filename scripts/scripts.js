@@ -1,6 +1,6 @@
 // профиль по юзер стори: начиная с кнопки
 const buttonEdit = document.querySelector('.profile__button_type_edit');
-const popupEditProfile = document.querySelector('.popup__edit');
+const popupEditProfile = document.querySelector('.popup_edit');
 const profileName = document.querySelector('.profile__name');
 const nameInput = document.querySelector('.popup__input[name="name"]');
 const profileDescription = document.querySelector('.profile__description');
@@ -10,7 +10,7 @@ const formEditProfile = document.querySelector('.popup__form_edit-profile')
 
 // карточки по юзер стори: начиная с кнопки
 const buttonAdd = document.querySelector('.profile__button_type_add');
-const popupAddPhoto = document.querySelector('.popup__add');
+const popupAddPhoto = document.querySelector('.popup_add');
 const cardsContainer = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.element');
 const placeInput = document.querySelector('.popup__input[name="place"]');
