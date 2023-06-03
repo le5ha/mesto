@@ -25,12 +25,29 @@ const buttonClosePhoto = document.querySelector('.popup__button_type_close-image
 // открывать и закрывать попапы
 function openPopup(popupChoose) {
     popupChoose.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupOnEsc);
+    document.addEventListener('click', closePopupOnOverlay)
 }
 
 function closePopup(popupChoose) {
     popupChoose.classList.remove('popup_opened');
 }
 
+function closePopupOnEsc(evt) {
+    const popupToClose = document.querySelector('.popup_opened')
+    if (evt.key === 'Escape') {;
+        closePopup(popupToClose);
+        document.removeEventListener('keydown', closePopupOnEsc);
+    }
+}
+
+function closePopupOnOverlay(evt) {
+    const popupToClose = document.querySelector('.popup_opened');
+    if (evt.target === popupToClose) {
+        closePopup(popupToClose);
+        document.removeEventListener('click', closePopupOnOverlay);
+    }
+}
 // логика профиля
 // заполнить профиль
 function fillProfile() {

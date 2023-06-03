@@ -70,13 +70,19 @@
              type="text"
              name="name"
              id="name"
-             placeholder="Введите имя">
+             placeholder="Введите имя"
+             required
+             minlength="2" maxlength="40">
+      <span class="popup__input-error"></span>
       <!-- <label for="description">Укажите профессию</label> -->
       <input class="popup__input"
              type="text"
              name="description"
              id="description"
-             placeholder="Укажите профессию">
+             placeholder="Укажите профессию"
+             required
+             minlength="2" maxlength="200">
+      <span class="popup__input-error"></span>
       <button class="popup__button popup__button_type_save"
               type="submit">Сохранить
       </button>
@@ -99,13 +105,18 @@
              type="text"
              name="place"
              id="place"
-             placeholder="Название">
+             placeholder="Название"
+             required
+             minlength="2" maxlength="30">
+      <span class="popup__input-error"></span>
       <!-- <label for="description">Название</label> -->
       <input class="popup__input"
-             type="text"
+             type="url"
              name="link"
              id="link"
-             placeholder="Ссылка на картинку">
+             placeholder="Ссылка на картинку"
+             required>
+      <span class="popup__input-error"></span>
       <button class="popup__button popup__button_type_save"
               type="submit">Создать
       </button>
@@ -116,8 +127,8 @@
 <div class="popup popup_open">
   <figure class="popup__image">
     <img class="popup__photo"
-    src="#"
-    alt="#">
+         src="#"
+         alt="#">
     <button class="popup__button popup__button_type_close popup__button_type_close-image"
             type="button"
             aria-label="Закрыть">
@@ -128,5 +139,6 @@
 
 <script src="scripts/initial-cards.js"></script>
 <script src="scripts/scripts.js"></script>
+<script src="scripts/validate.js"></script>
 </body>
 </html>
