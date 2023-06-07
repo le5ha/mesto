@@ -1,4 +1,4 @@
-// я искренне не понимаю, почему оно не работает до конца...
+
 // показать ошибку
 const showInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -45,7 +45,6 @@ const setEventListeners = (formElement, config) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
     toggleButtonState(inputList, buttonElement, config);
-
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             isInputValid(formElement, inputElement, config);
