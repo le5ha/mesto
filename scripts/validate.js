@@ -44,11 +44,24 @@ function toggleButtonState(inputList, buttonElement, config) {
 const setEventListeners = (formElement, config) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
+    console.log('Form Element:', formElement);
+    console.log('Input List:', inputList);
+    console.log('Button Element:', buttonElement);
+
     toggleButtonState(inputList, buttonElement, config);
+
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
+            console.log('Input event triggered');
+            console.log('Form Element:', formElement);
+            console.log('Input Element:', inputElement);
+            console.log('Config:', config);
+
             isInputValid(formElement, inputElement, config);
             toggleButtonState(inputList, buttonElement, config);
+
+            console.log('Input event completed');
         });
     });
 };

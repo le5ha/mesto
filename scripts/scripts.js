@@ -26,7 +26,7 @@ const buttonClosePhoto = document.querySelector('.popup__button_type_close-image
 function openPopup(popupChoose) {
     popupChoose.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupOnEsc);
-    document.addEventListener('click', closePopupOnOverlay)
+    document.addEventListener('click', closePopupOnOverlay);
 }
 
 function closePopup(popupChoose) {
@@ -119,8 +119,9 @@ function addInitialCards(array) {
 
 // слушатели для профиля
 buttonEdit.addEventListener('click', function () {
-    openPopup(popupEditProfile);
     fillProfile();
+    enableValidation(config);
+    openPopup(popupEditProfile);
 });
 
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
@@ -131,6 +132,7 @@ buttonCloseProfile.addEventListener('click', function () {
 
 // слушатели карточек
 buttonAdd.addEventListener('click', function () {
+    enableValidation(config);
     openPopup(popupAddPhoto);
 });
 
