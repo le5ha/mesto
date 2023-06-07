@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   border: none;
-  gap: 26px;
 }
 
 @media screen and (max-width: 767px) {
