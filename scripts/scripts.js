@@ -38,11 +38,13 @@ function closePopup(popupChoose) {
 
 function closePopupOnEsc(evt) {
     if (evt.key === 'Escape') {
-        closePopup(evt.target);
+        const popupToClose = document.querySelector('.popup_opened');
+        closePopup(popupToClose);
     }
 }
 
-function closePopupOnOverlay(evt) {
+
+    function closePopupOnOverlay(evt) {
     if (evt.target.classList.contains('popup')) {
         closePopup(evt.target);
     }
