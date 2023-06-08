@@ -15,7 +15,7 @@ const hideInputError = (formElement, inputElement) => {
 };
 
 // проверка инпута
-const isInputValid = (formElement, inputElement, config) => {
+const isInputValid = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement);
     } else {
@@ -47,7 +47,7 @@ const setEventListeners = (formElement, config) => {
     toggleButtonState(inputList, buttonElement, config);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-            isInputValid(formElement, inputElement, config);
+            isInputValid(formElement, inputElement);
             toggleButtonState(inputList, buttonElement, config);
         });
     });
@@ -59,9 +59,6 @@ function enableValidation(config) {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
         setEventListeners(formElement, config);
-        formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
     });
 }
 
@@ -73,6 +70,5 @@ const config = {
     inputErrorClass: 'popup__input_error',
     errorClass: 'popup__input-error_visible'
 };
-
 
 enableValidation(config);

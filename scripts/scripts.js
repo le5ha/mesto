@@ -26,26 +26,25 @@ const buttonClosePhoto = document.querySelector('.popup__button_type_close-image
 function openPopup(popupChoose) {
     popupChoose.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupOnEsc);
-    document.addEventListener('click', closePopupOnOverlay);
+    popupChoose.addEventListener('click', closePopupOnOverlay);
+    enableValidation(config);
 }
 
 function closePopup(popupChoose) {
     popupChoose.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupOnEsc);
+    popupChoose.removeEventListener('click', closePopupOnOverlay);
 }
 
 function closePopupOnEsc(evt) {
-    const popupToClose = document.querySelector('.popup_opened')
-    if (evt.key === 'Escape') {;
-        closePopup(popupToClose);
-        document.removeEventListener('keydown', closePopupOnEsc);
+    if (evt.key === 'Escape') {
+        closePopup(evt.target);
     }
 }
 
 function closePopupOnOverlay(evt) {
-    const popupToClose = document.querySelector('.popup_opened');
-    if (evt.target === popupToClose) {
-        closePopup(popupToClose);
-        document.removeEventListener('click', closePopupOnOverlay);
+    if (evt.target.classList.contains('popup')) {
+        closePopup(evt.target);
     }
 }
 // логика профиля
@@ -107,6 +106,8 @@ function handleAddPhotoSubmit(evt) {
     addCard((placeInput.value), (photoInput.value));
     placeInput.value = '';
     photoInput.value = '';
+    evt.submitter.classList.add('popup__button-save_disabled')
+    evt.submitter.disabled = true;
     closePopup(popupAddPhoto);
 }
 
@@ -120,7 +121,6 @@ function addInitialCards(array) {
 // слушатели для профиля
 buttonEdit.addEventListener('click', function () {
     fillProfile();
-    enableValidation(config);
     openPopup(popupEditProfile);
 });
 
@@ -132,7 +132,6 @@ buttonCloseProfile.addEventListener('click', function () {
 
 // слушатели карточек
 buttonAdd.addEventListener('click', function () {
-    enableValidation(config);
     openPopup(popupAddPhoto);
 });
 
