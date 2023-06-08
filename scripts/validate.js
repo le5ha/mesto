@@ -71,4 +71,5 @@ const config = {
     errorClass: 'popup__input-error_visible'
 };
 
+
 enableValidation(config);

@@ -24,10 +24,10 @@ const buttonClosePhoto = document.querySelector('.popup__button_type_close-image
 
 // открывать и закрывать попапы
 function openPopup(popupChoose) {
+    enableValidation(config);
     popupChoose.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupOnEsc);
     popupChoose.addEventListener('click', closePopupOnOverlay);
-    enableValidation(config);
 }
 
 function closePopup(popupChoose) {
