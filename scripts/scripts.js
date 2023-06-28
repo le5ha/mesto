@@ -1,109 +1,82 @@
-// профиль по юзер стори: начиная с кнопки
-const buttonEdit = document.querySelector('.profile__button_type_edit');
-const popupEditProfile = document.querySelector('.popup_edit');
-const profileName = document.querySelector('.profile__name');
-const nameInput = document.querySelector('.popup__input[name="name"]');
-const profileDescription = document.querySelector('.profile__description');
-const descriptionInput = document.querySelector('.popup__input[name="description"]');
-const buttonCloseProfile = document.querySelector('.popup__button_type_close-profile');
-const formEditProfile = document.querySelector('.popup__form_edit-profile')
+import {
+    buttonEdit,
+    popupEditProfile,
+    profileName,
+    nameInput,
+    profileDescription,
+    descriptionInput,
+    buttonCloseProfile,
+    formEditProfile,
+    buttonAdd,
+    popupAddPhoto,
+    cardsContainer,
+    placeInput,
+    photoInput,
+    formNewCard,
+    buttonCloseAdd,
+    popupOpenPhoto,
+    buttonClosePhoto,
+    initialCards,
+    config
+} from './const.js';
 
-// карточки по юзер стори: начиная с кнопки
-const buttonAdd = document.querySelector('.profile__button_type_add');
-const popupAddPhoto = document.querySelector('.popup_add');
-const cardsContainer = document.querySelector('.elements__list');
-const cardTemplate = document.querySelector('.element');
-const placeInput = document.querySelector('.popup__input[name="place"]');
-const photoInput = document.querySelector('.popup__input[name="link"]');
-const formNewCard = document.querySelector('.popup__form_add-photo');
-const buttonCloseAdd = document.querySelector('.popup__button_type_close-add');
-const popupOpenPhoto = document.querySelector('.popup_open');
-const imagePhotoOpen = document.querySelector('.popup__photo');
-const titleOpenPhoto = document.querySelector('.popup__caption');
-const buttonClosePhoto = document.querySelector('.popup__button_type_close-image');
+import {
+    Card
+} from './card.js';
+
+import {
+    FormValidator
+} from './validate.js';
 
 // открывать и закрывать попапы
-function openPopup(popupChoose) {
-    enableValidation(config);
+export const openPopup = (popupChoose) => {
     popupChoose.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupOnEsc);
     popupChoose.addEventListener('click', closePopupOnOverlay);
 }
 
-function closePopup(popupChoose) {
+export const closePopup = (popupChoose) => {
     popupChoose.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupOnEsc);
     popupChoose.removeEventListener('click', closePopupOnOverlay);
 }
 
-function closePopupOnEsc(evt) {
+// закрывать на эскейп и оверлей
+const closePopupOnEsc = (evt) => {
     if (evt.key === 'Escape') {
         const popupToClose = document.querySelector('.popup_opened');
         closePopup(popupToClose);
     }
 }
 
-
-    function closePopupOnOverlay(evt) {
+const closePopupOnOverlay = (evt) => {
     if (evt.target.classList.contains('popup')) {
         closePopup(evt.target);
     }
 }
-// логика профиля
+
 // заполнить профиль
-function fillProfile() {
+const fillProfile = () => {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
 }
 
 // сохранение профиля
-function handleProfileFormSubmit(evt) {
+const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileDescription.textContent = descriptionInput.value;
     closePopup(popupEditProfile);
 }
 
-// логика карточек
-// лайкнуть карточку
-function likeCard(event) {
-    event.target.closest('.card__button-like').classList.toggle('card__button-like_active');
-}
-
-// удалить карточку
-function deleteCard(event) {
-    event.target.closest('.card').remove();
-}
-
-function showImagePopup(event) {
-    imagePhotoOpen.src = event.target.src;
-    imagePhotoOpen.alt = event.target.alt;
-    titleOpenPhoto.textContent = event.target.closest('.card').querySelector('.card__title').textContent;
-    openPopup(popupOpenPhoto);
-}
-
-// создать карточку
-function createCard(title, photo) {
-    const cardElement = cardTemplate.content.cloneNode(true);
-    const cardPhoto = cardElement.querySelector('.card__photo');
-    const cardTitle = cardElement.querySelector('.card__title');
-    const likeCardButton = cardElement.querySelector('.card__button-like');
-    const deleteCardButton = cardElement.querySelector('.card__button-delete'); // Get the delete button of the new card
-    cardTitle.textContent = title;
-    cardPhoto.src = photo;
-    cardPhoto.alt = title;
-    likeCardButton.addEventListener('click', likeCard);
-    deleteCardButton.addEventListener('click', deleteCard);
-    cardPhoto.addEventListener('click', showImagePopup);
-    return cardElement;
-}
-
-function addCard(title, photo) {
-    const cardElement = createCard(title, photo);
+// добавить карточку из класса карточки
+const addCard = (name, link) => {
+    const cardElement = new Card(name, link).generateCard();
     cardsContainer.prepend(cardElement);
 }
+
 // хэндлер создания карточки
-function handleAddPhotoSubmit(evt) {
+const handleAddPhotoSubmit = (evt) => {
     evt.preventDefault();
     addCard((placeInput.value), (photoInput.value));
     placeInput.value = '';
@@ -113,14 +86,14 @@ function handleAddPhotoSubmit(evt) {
     closePopup(popupAddPhoto);
 }
 
-// создать стартовые карточки
-function addInitialCards(array) {
+// создание начальных карточек
+const addInitialCards = (array) => {
     array.forEach((card) => {
         addCard(card.name, card.link);
     });
 }
 
-// слушатели для профиля
+// слушатели на профиль
 buttonEdit.addEventListener('click', function () {
     fillProfile();
     openPopup(popupEditProfile);
@@ -132,7 +105,7 @@ buttonCloseProfile.addEventListener('click', function () {
     closePopup(popupEditProfile);
 });
 
-// слушатели карточек
+// слушатели на добавление карточки
 buttonAdd.addEventListener('click', function () {
     openPopup(popupAddPhoto);
 });
@@ -147,4 +120,12 @@ buttonClosePhoto.addEventListener('click', function () {
     closePopup(popupOpenPhoto);
 })
 
+// включить валидацию
+const formValidatorProfile = new FormValidator(formEditProfile, config);
+formValidatorProfile.enableValidation();
+
+const formValidatorCard = new FormValidator(formNewCard, config);
+formValidatorCard.enableValidation();
+
+// добавить начальные карточки
 addInitialCards(initialCards);

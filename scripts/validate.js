@@ -1,75 +1,68 @@
+// импорт конфига
+import { config } from './const.js';
 
-// показать ошибку
-const showInputError = (formElement, inputElement) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(config.inputErrorClass);
-    errorElement.classList.add(config.errorClass);
-    errorElement.textContent = inputElement.validationMessage;
-};
-// скрыть ошибку
-const hideInputError = (formElement, inputElement) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(config.inputErrorClass);
-    errorElement.classList.remove(config.errorClass);
-    errorElement.textContent = '';
-};
-
-// проверка инпута
-const isInputValid = (formElement, inputElement) => {
-    if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement);
-    } else {
-        hideInputError(formElement, inputElement);
+export class FormValidator {
+    constructor(formElement) {
+        this._formElement = formElement;
+        this._inputList = Array.from(this._formElement.querySelectorAll(config.inputSelector));
+        this._buttonElement = this._formElement.querySelector(config.submitButtonSelector);
     }
-};
 
-// проверка наличия невалидных инпутов
-function hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-})}
-
-// переключать кнопку
-function toggleButtonState(inputList, buttonElement, config) {
-    if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(config.inactiveButtonClass);
-        buttonElement.disabled = true;
-    } else {
-        buttonElement.classList.remove(config.inactiveButtonClass);
-        buttonElement.disabled = false;
+// показывать ошибку
+    _showInputError(inputElement) {
+        const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.add(config.inputErrorClass);
+        errorElement.classList.add(config.errorClass);
+        errorElement.textContent = inputElement.validationMessage;
     }
-}
 
-// повесить слушатели на инпуты
-const setEventListeners = (formElement, config) => {
-    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector);
-    toggleButtonState(inputList, buttonElement, config);
-    inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', () => {
-            isInputValid(formElement, inputElement);
-            toggleButtonState(inputList, buttonElement, config);
+// скрывать ошибку
+    _hideInputError(inputElement) {
+        const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.remove(config.inputErrorClass);
+        errorElement.classList.remove(config.errorClass);
+        errorElement.textContent = '';
+    }
+
+// проверить инпут
+    _isInputValid(inputElement) {
+        if (!inputElement.validity.valid) {
+            this._showInputError(inputElement);
+        } else {
+            this._hideInputError(inputElement);
+        }
+    }
+
+// проверка наличия невалидного инпута
+    _hasInvalidInput() {
+        return this._inputList.some((inputElement) => !inputElement.validity.valid);
+    }
+
+// переключить состояние кнопки
+    _toggleButtonState() {
+        if (this._hasInvalidInput()) {
+            this._buttonElement.classList.add(config.inactiveButtonClass);
+            this._buttonElement.disabled = true;
+        } else {
+            this._buttonElement.classList.remove(config.inactiveButtonClass);
+            this._buttonElement.disabled = false;
+        }
+    }
+
+// повесить слушатели на валидацию
+    _setEventListeners() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+            inputElement.addEventListener('input', () => {
+                this._isInputValid(inputElement);
+                this._toggleButtonState();
+            });
         });
-    });
-};
+    }
 
-
-// включить валидацию
-function enableValidation(config) {
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
-    formList.forEach((formElement) => {
-        setEventListeners(formElement, config);
-    });
+// включение валидации
+    enableValidation() {
+        this._setEventListeners();
+    }
 }
 
-const config = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button-save',
-    inactiveButtonClass: 'popup__button-save_disabled',
-    inputErrorClass: 'popup__input_error',
-    errorClass: 'popup__input-error_visible'
-};
-
-
-enableValidation(config);
