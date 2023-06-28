@@ -1,26 +1,24 @@
-// импорт конфига
-import { config } from './const.js';
-
 export class FormValidator {
-    constructor(formElement) {
+    constructor(formElement, config) {
         this._formElement = formElement;
-        this._inputList = Array.from(this._formElement.querySelectorAll(config.inputSelector));
-        this._buttonElement = this._formElement.querySelector(config.submitButtonSelector);
+        this._config = config;
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+        this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
     }
 
 // показывать ошибку
     _showInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add(config.inputErrorClass);
-        errorElement.classList.add(config.errorClass);
+        inputElement.classList.add(this._config.inputErrorClass);
+        errorElement.classList.add(this._config.errorClass);
         errorElement.textContent = inputElement.validationMessage;
     }
 
 // скрывать ошибку
     _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(config.inputErrorClass);
-        errorElement.classList.remove(config.errorClass);
+        inputElement.classList.remove(this._config.inputErrorClass);
+        errorElement.classList.remove(this._config.errorClass);
         errorElement.textContent = '';
     }
 
@@ -38,13 +36,18 @@ export class FormValidator {
         return this._inputList.some((inputElement) => !inputElement.validity.valid);
     }
 
-// переключить состояние кнопки
+// сбросить валидацию кнопки
+    _resetSaveButtonState() {
+        this._buttonElement.classList.add(this._config.inactiveButtonClass);
+        this._buttonElement.disabled = true;
+    }
+
+// переключать состояние кнопки
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-            this._buttonElement.classList.add(config.inactiveButtonClass);
-            this._buttonElement.disabled = true;
+            this._resetSaveButtonState(); // Вызываем общий метод для сброса состояния кнопки сохранения
         } else {
-            this._buttonElement.classList.remove(config.inactiveButtonClass);
+            this._buttonElement.classList.remove(this._config.inactiveButtonClass);
             this._buttonElement.disabled = false;
         }
     }
@@ -59,6 +62,8 @@ export class FormValidator {
             });
         });
     }
+
+
 
 // включение валидации
     enableValidation() {

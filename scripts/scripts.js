@@ -22,11 +22,11 @@ import {
 
 import {
     Card
-} from './card.js';
+} from './Card.js';
 
 import {
     FormValidator
-} from './validate.js';
+} from './FormValidator.js';
 
 // открывать и закрывать попапы
 export const openPopup = (popupChoose) => {
@@ -81,11 +81,11 @@ const addCard = (name, link) => {
 // хэндлер создания карточки
 const handleAddPhotoSubmit = (evt) => {
     evt.preventDefault();
-    addCard((placeInput.value), (photoInput.value));
+    addCard(placeInput.value, photoInput.value);
     placeInput.value = '';
     photoInput.value = '';
-    evt.submitter.classList.add('popup__button-save_disabled')
-    evt.submitter.disabled = true;
+    formValidatorCard.resetValidation();
+    formValidatorCard._resetSaveButtonState(); // Вызываем общий метод для сброса состояния кнопки сохранения
     closePopup(popupAddPhoto);
 }
 

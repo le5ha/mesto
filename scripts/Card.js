@@ -1,22 +1,15 @@
 // импорты
 import {
-    buttonClosePhoto,
     imagePhotoOpen,
     popupOpenPhoto,
     titleOpenPhoto
 } from './const.js';
 
-import {
-    openPopup,
-    closePopup
-} from './scripts.js';
-
 export class Card {
-    constructor(name, link) {
+    constructor(name, link, openPopup) {
         this._name = name;
         this._link = link;
         this._openPopup = openPopup;
-        this._closePopup = closePopup;
     }
 
 // получить шаблон карточки
@@ -45,22 +38,11 @@ export class Card {
         this._openPopup(popupOpenPhoto);
     }
 
-// закрыть попап
-    _handleClosePopup() {
-        imagePhotoOpen.src = '';
-        imagePhotoOpen.alt = '';
-        titleOpenPhoto.textContent = '';
-        this._closePopup(popupOpenPhoto);
-    }
 
 // слушатели
     _setEventListeners() {
         this._element.querySelector('.card__photo').addEventListener('click', () => {
             this._handleOpenPopup();
-        })
-
-        buttonClosePhoto.addEventListener('click', () => {
-            this._handleClosePopup();
         })
 
         this._element.querySelector('.card__button-delete').addEventListener('click', () => {
