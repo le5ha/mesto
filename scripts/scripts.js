@@ -64,10 +64,13 @@ const fillProfile = () => {
 // сохранение профиля
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileDescription.textContent = descriptionInput.value;
-    closePopup(popupEditProfile);
+    if (formEditProfile.checkValidity()) {
+        profileName.textContent = nameInput.value;
+        profileDescription.textContent = descriptionInput.value;
+        closePopup(popupEditProfile);
+    }
 }
+
 
 // добавить карточку из класса карточки
 const addCard = (name, link) => {
@@ -97,6 +100,7 @@ const addInitialCards = (array) => {
 buttonEdit.addEventListener('click', function () {
     fillProfile();
     openPopup(popupEditProfile);
+    formValidatorProfile.resetValidation();
 });
 
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
@@ -108,6 +112,7 @@ buttonCloseProfile.addEventListener('click', function () {
 // слушатели на добавление карточки
 buttonAdd.addEventListener('click', function () {
     openPopup(popupAddPhoto);
+    formValidatorCard.resetValidation();
 });
 
 formNewCard.addEventListener('submit', handleAddPhotoSubmit);
