@@ -1,4 +1,3 @@
-// импорты
 import './index.css';
 
 import {
@@ -21,20 +20,17 @@ import {PopupWithImage} from '../components/PopupWithImage.js';
 import {Section} from '../components/Section.js';
 import {UserInfo} from '../components/UserInfo';
 
-// включить валидацию
 const editValidator = new FormValidator(popupEditProfile, config);
 editValidator.enableValidation();
 
 const addValidator = new FormValidator(popupAddPhoto, config);
 addValidator.enableValidation();
 
-// получить профиль
 const profile = new UserInfo({
     profileName: '.profile__name', // разобраться
     profileDescription: '.profile__description'
 });
 
-// редактировать профиль
 const popupEdit = new PopupWithForm(popupEditProfile, {
     handleSubmitForm: (data) => {
         profile.setUserInfo(data);
@@ -57,8 +53,6 @@ buttonEdit.addEventListener('click', function () {
     editValidator._toggleButtonState();
 });
 
-
-// добавлять карточки
 const popupAdd = new PopupWithForm(popupAddPhoto, {
     handleSubmitForm: (formData) => {
         cards.addItem(formData);
@@ -73,11 +67,10 @@ buttonAdd.addEventListener('click', () => {
     addValidator._toggleButtonState();
 });
 
-// открывать попап с фотками
+
 const popupOpen = new PopupWithImage(popupOpenPhoto);
 popupOpen.setEventListeners();
 
-// создать новую карточку
 const createNewCard = (data) => {
     const card = new Card({
         data, handleOpenPopup: () => {
@@ -87,7 +80,6 @@ const createNewCard = (data) => {
     return card;
 }
 
-// создать карточки
 const cards = new Section({
     items: initialCards, renderer: (initialCards) => {
         const card = createNewCard(initialCards);
