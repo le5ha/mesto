@@ -10,6 +10,7 @@ import {
     popupOpenPhoto,
     initialCards,
     cardTemplate,
+    cardsContainer,
     config
 } from '../utils/const.js';
 
@@ -27,22 +28,21 @@ const addValidator = new FormValidator(popupAddPhoto, config);
 addValidator.enableValidation();
 
 const profile = new UserInfo({
-    profileName: '.profile__name', // разобраться
-    profileDescription: '.profile__description'
+    nameSelector: '.profile__name',
+    descriptionSelector: '.profile__description'
 });
 
 const popupEdit = new PopupWithForm(popupEditProfile, {
     handleSubmitForm: (data) => {
         profile.setUserInfo(data);
-        popupEdit.close();
     }
 });
 
 function editProfile() {
-    editValidator.resetValidation();
     const userData = profile.getUserInfo();
     nameInput.value = userData.userName;
     descriptionInput.value = userData.userDescription;
+    editValidator.resetValidation();
 }
 
 popupEdit.setEventListeners();
@@ -50,12 +50,11 @@ popupEdit.setEventListeners();
 buttonEdit.addEventListener('click', function () {
     editProfile();
     popupEdit.open();
-    editValidator._toggleButtonState();
 });
 
 const popupAdd = new PopupWithForm(popupAddPhoto, {
     handleSubmitForm: (formData) => {
-        cards.addItem(formData);
+        cards.addItem(createNewCard(formData));
         popupAdd.close();
     }
 });
@@ -64,28 +63,29 @@ popupAdd.setEventListeners();
 
 buttonAdd.addEventListener('click', () => {
     popupAdd.open();
-    addValidator._toggleButtonState();
+    addValidator.resetValidation();
 });
 
+const popupOpenCard = new PopupWithImage(popupOpenPhoto);
+popupOpenCard.setEventListeners();
 
-const popupOpen = new PopupWithImage(popupOpenPhoto);
-popupOpen.setEventListeners();
-
-const createNewCard = (data) => {
+function createNewCard(data) {
     const card = new Card({
-        data, handleOpenPopup: () => {
-            popupOpen.open(data.place, data.link);
-        }
-    });
-    return card;
+        data,
+        handleOpenPopup: (place, link) => {
+            popupOpenCard.open(data.place, data.link);
+        },
+    }, cardTemplate);
+    return card.generateCard();
 }
 
 const cards = new Section({
-    items: initialCards, renderer: (initialCards) => {
-        const card = createNewCard(initialCards);
-        return card.generateCard();
-    }
+    items: initialCards,
+    renderer: (initialCard) => {
+        const card = createNewCard(initialCard);
+        return card;
+    },
+    container: cardsContainer,
 });
 
 cards.renderItems();
-

@@ -9,8 +9,9 @@ const descriptionInput = document.querySelector('.popup__input[name="description
 // переменные для добавления карточек
 const buttonAdd = document.querySelector('.profile__button_type_add');
 const popupAddPhoto = document.querySelector('.popup_add');
-const cardTemplate = document.querySelector('.card');
 const popupOpenPhoto = document.querySelector('.popup_open');
+const cardTemplate = document.querySelector('.element');
+const cardsContainer = document.querySelector('.elements__list');
 
 // начальные карточки
 const initialCards = [
@@ -61,5 +62,6 @@ export {
     popupOpenPhoto,
     initialCards,
     cardTemplate,
+    cardsContainer,
     config
 };

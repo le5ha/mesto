@@ -1,21 +1,18 @@
 export class Card {
-    constructor({data, handleOpenPopup}) {
+    constructor({data, handleOpenPopup}, templateSelector) {
         this._name = data.place;
         this._link = data.link;
         this._handleOpenPopup = handleOpenPopup;
+        this._templateSelector = templateSelector;
     }
 
     _getTemplate() {
-        const cardTemplate = document
-            .querySelector('.element')
-            .content.querySelector('.card')
+        return this._templateSelector.content.querySelector('.card')
             .cloneNode(true);
-        return cardTemplate;
     }
 
     _handleLikeButton() {
         this._likeButton.classList.toggle('card__button-like_active');
-        console.log(this._likeButton);
     }
 
     _handleDeleteCard() {
