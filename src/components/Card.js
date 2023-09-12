@@ -7,8 +7,7 @@ export class Card {
     }
 
     _getTemplate() {
-        return this._templateSelector.content.querySelector('.card')
-            .cloneNode(true);
+        return document.querySelector(this._templateSelector).content.querySelector('.card') .cloneNode(true);
     }
 
     _handleLikeButton() {
