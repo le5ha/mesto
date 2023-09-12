@@ -71,13 +71,13 @@ popupOpenCard.setEventListeners();
 function createNewCard(data) {
     const card = new Card({
         data,
-        // переделал на использование в явном виде
         handleOpenPopup: () => {
-            popupOpenCard.open(data.place, data.link);
+            popupOpenCard.open(data);
         },
     }, '.element');
     return card.generateCard();
 }
+
 
 const cards = new Section({
     items: initialCards,
