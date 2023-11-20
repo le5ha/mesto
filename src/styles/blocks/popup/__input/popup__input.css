@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.popup__input:first-of-type {
-  margin-top: 44px;
-}
-
 
 .popup__input::placeholder {
   color: black;

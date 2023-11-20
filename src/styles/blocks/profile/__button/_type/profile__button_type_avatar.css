@@ -1,0 +1,27 @@
+.profile__button_type_avatar {
+  background: #000000 no-repeat center;
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 100%;
+  position: absolute;
+  padding: 0;
+  opacity: 0;
+}
+
+.profile__button_type_avatar:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .profile__button_type_avatar {
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile__button_type_avatar {
+    margin-right: 0;
+  }
+}

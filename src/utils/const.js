@@ -1,43 +1,26 @@
 // вынес все переменные в отдельный файл
 // переменные для профиля
-const buttonEdit = document.querySelector('.profile__button_type_edit');
+const buttonEditProfile = document.querySelector('.profile__button_type_edit');
 const popupEditProfile = document.querySelector('.popup_edit');
+
 
 const nameInput = document.querySelector('.popup__input[name="name"]');
 const descriptionInput = document.querySelector('.popup__input[name="description"]');
 
+const buttonEditAvatar = document.querySelector('.profile__button_type_avatar');
+const popupEditAvatar = document.querySelector('.popup_avatar');
+
 // переменные для добавления карточек
-const buttonAdd = document.querySelector('.profile__button_type_add');
+const buttonAddPhoto = document.querySelector('.profile__button_type_add');
 const popupAddPhoto = document.querySelector('.popup_add');
 
-
-// начальные карточки
-const initialCards = [
-    {
-        place: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        place: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        place: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        place: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        place: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        place: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+const apiConfig = {
+    url: 'https://mesto.nomoreparties.co/v1/cohort-75',
+    headers: {
+        authorization: '6783bce9-8e64-422b-aac7-1a65a7ea4fbf',
+        'Content-Type': 'application/json'
     }
-];
+}
 
 // конфиг для валидации
 const config = {
@@ -51,12 +34,14 @@ const config = {
 
 // экспорты
 export {
-    buttonEdit,
+    buttonEditProfile,
     popupEditProfile,
     nameInput,
     descriptionInput,
-    buttonAdd,
+    buttonAddPhoto,
     popupAddPhoto,
-    initialCards,
-    config
+    config,
+    buttonEditAvatar,
+    popupEditAvatar,
+    apiConfig
 };

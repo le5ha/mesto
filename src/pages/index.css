@@ -13,13 +13,16 @@
 @import url('../styles/blocks/profile/__description/profile__description.css');
 @import url('../styles/blocks/profile/__button/_type/profile__button_type_add.css');
 @import url('../styles/blocks/profile/__button/_type/profile__button_type_edit.css');
+@import url('../styles/blocks/profile/__button/_type/profile__button_type_avatar.css');
 @import url('../styles/blocks/elements/elements.css');
 @import url('../styles/blocks/elements/__list/elements__list.css');
 @import url('../styles/blocks/card/card.css');
 @import url('../styles/blocks/card/__photo/card__photo.css');
 @import url('../styles/blocks/card/__sign/card__sign.css');
 @import url('../styles/blocks/card/__title/card__title.css');
+@import url('../styles/blocks/card/__like/card__like.css');
 @import url('../styles/blocks/card/__button-like/card__button-like.css');
+@import url('../styles/blocks/card/__like-count/card__like-count.css');
 @import url('../styles/blocks/card/__button-like/_active/card__button-like_active.css');
 @import url('../styles/blocks/card/__button-delete/card__button-delete.css');
 @import url('../styles/blocks/popup/popup.css');

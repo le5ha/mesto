@@ -39,7 +39,7 @@ export class FormValidator {
 
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-            this._resetSaveButtonState(); // Вызываем общий метод для сброса состояния кнопки сохранения
+            this._resetSaveButtonState();
         } else {
             this._buttonElement.classList.remove(this._config.inactiveButtonClass);
             this._buttonElement.disabled = false;
